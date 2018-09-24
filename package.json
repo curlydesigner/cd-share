@@ -4,21 +4,65 @@
   "description": "Shared classes between Curly Designer projects",
   "main": "lib/index.js",
   "scripts": {
-    "bundle": "npm run clear; npm run build && tar -zcvf ../../bundles/cd-shared.tar.gz --exclude \"node_modules\" --exclude \"src\" *",
+    "prepare": "npm run build",
     "start": "npm run build:live",
     "build": "tsc",
     "build:live": "nodemon --watch ./src -e ts --exec tsc",
-    "clear": "rm -r lib"
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "cover": "nyc npm test && npm run lint && nyc report --reporter=text-lcov | coveralls",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
   },
   "author": "Yuri Panshin <yura@panshin.me>",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.1.5",
+    "@types/mocha": "^5.2.5",
+    "@types/sinon": "^5.0.2",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mocha-sinon": "^2.1.0",
     "nodemon": "^1.12.1",
+    "nyc": "^13.0.1",
+    "prettier": "^1.14.3",
+    "sinon": "^6.3.4",
+    "source-map-support": "^0.5.9",
     "ts-node": "^3.3.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
     "typescript": "^2.6.1"
   },
   "dependencies": {
     "moment": "^2.22.2",
     "rxjs": "^6.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/curlydesigner/cd-shared.git"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.spec.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcovonly"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
   }
 }

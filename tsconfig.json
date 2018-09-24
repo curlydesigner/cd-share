@@ -3,8 +3,9 @@
     "target": "es6",
     "module": "commonjs",
     "declaration": true,
+    "sourceMap": true,
     "outDir": "./lib",
-     "rootDir": "src"
+    "rootDir": "src"
   },
   "ignore": ["./node_modules/*"]
 }

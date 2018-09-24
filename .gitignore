@@ -2,3 +2,6 @@ lib
 node_modules
 bundle
 .history
+coverage
+.nyc_output
+.vscode
