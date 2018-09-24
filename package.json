@@ -1,0 +1,24 @@
+{
+  "name": "cd-shared",
+  "version": "1.0.0",
+  "description": "Shared classes between Curly Designer projects",
+  "main": "lib/index.js",
+  "scripts": {
+    "bundle": "npm run clear; npm run build && tar -zcvf ../../bundles/cd-shared.tar.gz --exclude \"node_modules\" --exclude \"src\" *",
+    "start": "npm run build:live",
+    "build": "tsc",
+    "build:live": "nodemon --watch ./src -e ts --exec tsc",
+    "clear": "rm -r lib"
+  },
+  "author": "Yuri Panshin <yura@panshin.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "moment": "^2.22.2",
+    "rxjs": "^6.2.2"
+  }
+}
