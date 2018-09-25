@@ -1,6 +1,6 @@
 {
   "name": "cd-shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared classes between Curly Designer projects",
   "main": "lib/index.js",
   "scripts": {
