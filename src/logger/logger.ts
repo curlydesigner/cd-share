@@ -84,7 +84,7 @@ export class Logger {
           return param;
         }
       } catch (err) {
-        return err;
+        return err.toString();
       }
     });
     const date = Date.now();
