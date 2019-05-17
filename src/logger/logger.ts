@@ -2,13 +2,13 @@ import { BehaviorSubject } from 'rxjs';
 import * as moment from 'moment';
 
 /**
- * This class responsible for allication logging
+ * This class responsible for application logging
  */
 export class Logger {
   /**
    * Application logger level
    */
-  static level: Logger.Level;
+  static level: Logger.Level = 1;
   /**
    * Application name, added to logger output
    */
@@ -32,7 +32,6 @@ export class Logger {
    * @param name {string} module name
    */
   constructor(private name: string) {
-    Logger.level = Logger.Level.DEBUG;
   }
 
   /**
